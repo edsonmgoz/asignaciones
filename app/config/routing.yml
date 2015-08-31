@@ -1,3 +1,7 @@
+emm_user:
+    resource: "@EMMUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
