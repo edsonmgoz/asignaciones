@@ -6,7 +6,7 @@
 		<div class="row well">
 			<div class="col-md-6">
 				<div class="page-header">
-					<h2>New user</h2>
+					<h2>{% trans %}New user{% endtrans %}</h2>
 				</div>
                 {{ form_start(form, { 'attr' : {'novalidate': 'novalidate', 'role' : 'form'} }) }}
                 
@@ -48,7 +48,7 @@
 
 				<div class="checkbox">
 				    <label>
-						{{ form_widget(form.isActive) }}Active
+						{{ form_widget(form.isActive) }}{% trans %}Active{% endtrans %}
 						<span class="text-danger">{{ form_errors(form.isActive) }}</span>
 				    </label>
 				</div>

@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>New user</source>
+                <target>Crear usuario</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>Username</source>
+                <target>Usuario</target>
+            </trans-unit>     
+            <trans-unit id="3">
+                <source>First name</source>
+                <target>Nombre</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>Last name</source>
+                <target>Apellidos</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>Email</source>
+                <target>Correo electrónico</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>Role</source>
+                <target>Rol</target>
+            </trans-unit>    
+            <trans-unit id="7">
+                <source>Your username</source>
+                <target>Nombre de usuario</target>
+            </trans-unit>     
+            <trans-unit id="8">
+                <source>Your first name</source>
+                <target>Ingrese su nombre</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>Your last name</source>
+                <target>Ingrese sus apellidos</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>Your email</source>
+                <target>Ingrese su correo electrónico</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>Your password</source>
+                <target>Ingrese una contraseña</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>Select a role</source>
+                <target>Elegir un rol</target>
+            </trans-unit>               
+            <trans-unit id="13">
+                <source>Administrator</source>
+                <target>Administrador</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>User</source>
+                <target>Usuario</target>
+            </trans-unit>  
+            <trans-unit id="15">
+                <source>Active</source>
+                <target>Activo</target>
+            </trans-unit>               
+            <trans-unit id="16">
+                <source>Create user</source>
+                <target>Crear usuario</target>
+            </trans-unit>   
+            <trans-unit id="17">
+                <source>Assignments</source>
+                <target>Asignaciones</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>Users</source>
+                <target>Usuarios</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>List users</source>
+                <target>Listar usuarios</target>
+            </trans-unit> 
+            <trans-unit id="20">
+                <source>Created</source>
+                <target>Creado</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>Updated</source>
+                <target>Modificado</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>Actions</source>
+                <target>Acciones</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>View</source>
+                <target>Ver</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>Edit</source>
+                <target>Editar</target>
+            </trans-unit>
+            <trans-unit id="25">
+                <source>Delete</source>
+                <target>Eliminar</target>
+            </trans-unit>
+            <trans-unit id="26">
+            	<source>The user has been created.</source>
+            	<target>El usuario ha sido creado.</target>
+            </trans-unit>
+            <trans-unit id="27">
+            	<source>Total records:</source>
+            	<target>Total registros:</target>
+            </trans-unit>               
+        </body>
+    </file>
+</xliff>

@@ -10,11 +10,11 @@ use EMM\UserBundle\Form\UserType;
 
 class UserController extends Controller
 {
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         
-        $users = $em->getRepository('EMMUserBundle:User')->findAll();
+        // $users = $em->getRepository('EMMUserBundle:User')->findAll();
         
         /*
         
@@ -28,7 +28,16 @@ class UserController extends Controller
         return new Response($res);
         */
         
-        return $this->render('EMMUserBundle:User:index.html.twig', array('users' => $users));
+        $dql = "SELECT u FROM EMMUserBundle:User u";
+        $users = $em->createQuery($dql);
+        
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $users, $request->query->getInt('page', 1),
+            10
+        );
+        
+        return $this->render('EMMUserBundle:User:index.html.twig', array('pagination' => $pagination));
     }
     
     public function addAction()
@@ -67,6 +76,9 @@ class UserController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+            
+            $successMessage = $this->get('translator')->trans('The user has been created.');
+            $this->addFlash('mensaje', $successMessage);
             
             return $this->redirectToRoute('emm_user_index');
         }
