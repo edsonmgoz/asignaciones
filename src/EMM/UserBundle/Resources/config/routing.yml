@@ -19,6 +19,11 @@ emm_user_edit:
     path:     /user/edit/{id}
     defaults: { _controller: EMMUserBundle:User:edit }
 
+emm_user_update:
+    path:     /user/update/{id}
+    defaults: { _controller: EMMUserBundle:User:update }
+    methods: [POST, PUT]
+
 emm_user_view:
     path:     /user/view/{id}
     defaults: { _controller: EMMUserBundle:User:view }
@@ -32,4 +37,11 @@ emm_user_redirect_add:
     defaults:
         _controller: EMMUserBundle:User:add
         path: /user/add
+        permanent: true
+        
+emm_user_redirect_edit:
+    path: /user/update/{id}
+    defaults:
+        _controller: EMMUserBundle:User:edit
+        path: /user/edit/{id}
         permanent: true

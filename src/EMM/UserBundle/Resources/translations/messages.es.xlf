@@ -109,7 +109,31 @@
             <trans-unit id="27">
             	<source>Total records:</source>
             	<target>Total registros:</target>
-            </trans-unit>               
+            </trans-unit>
+            <trans-unit id="28">
+            	<source>Previous</source>
+            	<target>Anterior</target>
+            </trans-unit>
+            <trans-unit id="29">
+            	<source>Next</source>
+            	<target>Siguiente</target>
+            </trans-unit>     
+            <trans-unit id="30">
+            	<source>User not found.</source>
+            	<target>Usuario no encontrado.</target>
+            </trans-unit> 
+            <trans-unit id="31">
+            	<source>Edit user</source>
+            	<target>Editar usuario</target>
+            </trans-unit> 
+            <trans-unit id="32">
+            	<source>The user has been modified.</source>
+            	<target>El usuario ha sido modificado</target>
+            </trans-unit>   
+            <trans-unit id="33">
+            	<source>Update user</source>
+            	<target>Modificar usuario</target>
+            </trans-unit>              
         </body>
     </file>
 </xliff>

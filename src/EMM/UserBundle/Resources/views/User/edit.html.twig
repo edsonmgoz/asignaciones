@@ -1,0 +1,68 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+    {{ include('EMMUserBundle:User:messages/success.html.twig') }}
+	<div class="main container">
+		<div class="row well">
+			<div class="col-md-6">
+				<div class="page-header">
+					<h2>{% trans %}Edit user{% endtrans %}</h2>
+				</div>
+				{{ form_start(form, {'attr': {'novalidate': 'novalidate', 'role' : 'form'}}) }}
+				    <h4 class="text-danger">{{ form_errors(form) }}</h4>
+
+					<fieldset>
+					    <div class="form-group">
+					        {{ form_label(form.username) }}
+					        {{ form_widget(form.username, {'attr': {'class': 'form-control', 'placeholder' : 'Your username'}}) }}
+					        <span class="text-danger">{{ form_errors(form.username) }}</span>
+					    </div>
+
+					    <div class="form-group">
+					        {{ form_label(form.firstName) }}
+					        {{ form_widget(form.firstName, {'attr': {'class': 'form-control', 'placeholder' : 'Your first name'}}) }}
+					        <span class="text-danger">{{ form_errors(form.firstName) }}</span>
+					    </div>
+
+					    <div class="form-group">
+					        {{ form_label(form.lastName) }}
+					        {{ form_widget(form.lastName, {'attr': {'class': 'form-control', 'placeholder' : 'Your last name'}}) }}
+					        <span class="text-danger">{{ form_errors(form.lastName) }}</span>
+					    </div>
+
+					    <div class="form-group">
+					        {{ form_label(form.email) }}
+					        {{ form_widget(form.email, {'attr': {'class': 'form-control', 'placeholder' : 'Your email'}}) }}
+					        <span class="text-danger">{{ form_errors(form.email) }}</span>
+					    </div>
+
+					    <div class="form-group">
+					        {{ form_label(form.password) }}
+					        {{ form_widget(form.password, {'attr': {'class': 'form-control', 'placeholder' : 'Your password'}}) }}
+					        <span class="text-danger">{{ form_errors(form.password) }}</span>
+					    </div>
+
+					    <div class="form-group">
+					        {{ form_label(form.role) }}
+					        {{ form_widget(form.role, {'attr': {'class': 'form-control'}}) }}
+					        <span class="text-danger">{{ form_errors(form.role) }}</span>
+					    </div>
+
+						<div class="checkbox">
+						    <label>
+								{{ form_widget(form.isActive) }} {% trans %}Active{% endtrans %}
+								<span class="text-danger">{{ form_errors(form.role) }}</span>
+						    </label>
+						</div>
+					</fieldset>
+
+				    <p>
+				        {{ form_widget(form.save, {'label' : 'Update user', 'attr': {'class': 'btn btn-success'}}) }}
+				    </p>
+
+				{{ form_end(form) }}
+			</div>
+		</div>
+	</div>
+{% endblock %}
