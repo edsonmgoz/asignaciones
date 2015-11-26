@@ -188,11 +188,48 @@ class UserController extends Controller
         
         $user = $repository->find($id);
         
-        // $user = $repository->findOneByUsername($nombre);
+        if(!$user)
+        {
+            $messageException = $this->get('translator')->trans('User not found.');
+            throw $this->createNotFoundException($messageException);
+        }
         
-        return new Response('Usuario: ' . $user->getUsername() . ' con email: ' . $user->getEmail());    
+        $deleteForm = $this->createDeleteForm($user);
         
+        return $this->render('EMMUserBundle:User:view.html.twig', array('user' => $user, 'delete_form' => $deleteForm->createView()));
     }
-
-
+    
+    private function createDeleteForm($user)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl('emm_user_delete', array('id' => $user->getId())))
+            ->setMethod('DELETE')
+            ->getForm();
+    }
+    
+    public function deleteAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $user = $em->getRepository('EMMUserBundle:User')->find($id);
+        
+        if(!$user)
+        {
+            $messageException = $this->get('translator')->trans('User not found.');
+            throw $this->createNotFoundException($messageException);
+        }
+        
+        $form = $this->createDeleteForm($user);
+        $form->handleRequest($request);
+        
+        if($form->isSubmitted() && $form->isValid())
+        {
+            $em->remove($user);
+            $em->flush();
+            
+            $successMessage = $this->get('translator')->trans('The user has been deleted.');
+            $this->addFlash('mensaje', $successMessage);
+            return $this->redirectToRoute('emm_user_index');            
+        }
+    }
 }

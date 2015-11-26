@@ -31,6 +31,7 @@ emm_user_view:
 emm_user_delete:
     path:     /user/delete/{id}
     defaults: { _controller: EMMUserBundle:User:delete }
+    methods: [POST, DELETE]
     
 emm_user_redirect_add:
     path: /user/create

@@ -133,6 +133,26 @@
             <trans-unit id="33">
             	<source>Update user</source>
             	<target>Modificar usuario</target>
+            </trans-unit>   
+            <trans-unit id="34">
+                <source>Disabled</source>
+                <target>Deshabilitado</target>
+            </trans-unit>     
+            <trans-unit id="35">
+                <source>Enabled</source>
+                <target>Habilitado</target>
+            </trans-unit>    
+            <trans-unit id="36">
+                <source>Delete user</source>
+                <target>Eliminar usuario</target>
+            </trans-unit>     
+            <trans-unit id="37">
+                <source>The user has been deleted.</source>
+                <target>El usuario ha sido eliminado.</target>
+            </trans-unit>      
+            <trans-unit id="38">
+                <source>Are you sure ?</source>
+                <target>Está seguro ?</target>
             </trans-unit>              
         </body>
     </file>
