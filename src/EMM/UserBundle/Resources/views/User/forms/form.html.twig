@@ -1,8 +1,10 @@
-{{ form_start(form) }}
+{{ form_start(form, {'attr': {'id': id|default('form')}} ) }}
 
     {{ form_widget(form) }}
     
+    {% if with_submit is not defined or with_submit == true %}
     <input type="button" value="{{ 'Delete user'|trans }}" class="btn btn-lg btn-block btn-danger" onclick="confirmDelete()" >
+    {% endif %}
 
 {{ form_end(form) }}
 

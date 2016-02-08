@@ -39,7 +39,9 @@ class UserController extends Controller
             10
         );
         
-        return $this->render('EMMUserBundle:User:index.html.twig', array('pagination' => $pagination));
+        $deleteFormAjax = $this->createCustomForm(':USER_ID', 'DELETE', 'emm_user_delete');
+        
+        return $this->render('EMMUserBundle:User:index.html.twig', array('pagination' => $pagination, 'delete_form_ajax' => $deleteFormAjax->createView()));
     }
     
     public function addAction()
@@ -194,17 +196,9 @@ class UserController extends Controller
             throw $this->createNotFoundException($messageException);
         }
         
-        $deleteForm = $this->createDeleteForm($user);
+        $deleteForm = $this->createCustomForm($user->getId(), 'DELETE', 'emm_user_delete');
         
         return $this->render('EMMUserBundle:User:view.html.twig', array('user' => $user, 'delete_form' => $deleteForm->createView()));
-    }
-    
-    private function createDeleteForm($user)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('emm_user_delete', array('id' => $user->getId())))
-            ->setMethod('DELETE')
-            ->getForm();
     }
     
     public function deleteAction(Request $request, $id)
@@ -219,17 +213,59 @@ class UserController extends Controller
             throw $this->createNotFoundException($messageException);
         }
         
-        $form = $this->createDeleteForm($user);
+        $allUsers = $em->getRepository('EMMUserBundle:User')->findAll();
+        $countUsers = count($allUsers);
+        
+        // $form = $this->createDeleteForm($user);
+        $form = $this->createCustomForm($user->getId(), 'DELETE', 'emm_user_delete');
         $form->handleRequest($request);
         
         if($form->isSubmitted() && $form->isValid())
         {
+            if($request->isXMLHttpRequest())
+            {
+                $res = $this->deleteUser($user->getRole(), $em, $user);
+                
+                return new Response(
+                    json_encode(array('removed' => $res['removed'], 'message' => $res['message'], 'countUsers' => $countUsers)),
+                    200,
+                    array('Content-Type' => 'application/json')
+                );
+            }
+            
+            $res = $this->deleteUser($user->getRole(), $em, $user);
+
+            $this->addFlash($res['alert'], $res['message']);
+            return $this->redirectToRoute('emm_user_index');            
+        }
+    }
+    
+    private function deleteUser($role, $em, $user)
+    {
+        if($role == 'ROLE_USER')
+        {
             $em->remove($user);
             $em->flush();
             
-            $successMessage = $this->get('translator')->trans('The user has been deleted.');
-            $this->addFlash('mensaje', $successMessage);
-            return $this->redirectToRoute('emm_user_index');            
+            $message = $this->get('translator')->trans('The user has been deleted.');
+            $removed = 1;
+            $alert = 'mensaje';
         }
+        elseif($role == 'ROLE_ADMIN')
+        {
+            $message = $this->get('translator')->trans('The user could not be deleted.');
+            $removed = 0;
+            $alert = 'error';
+        }
+        
+        return array('removed' => $removed, 'message' => $message, 'alert' => $alert);
+    }
+    
+    private function createCustomForm($id, $method, $route)
+    {
+        return $this->createFormBuilder()
+            ->setAction($this->generateUrl($route, array('id' => $id)))
+            ->setMethod($method)
+            ->getForm();
     }
 }
