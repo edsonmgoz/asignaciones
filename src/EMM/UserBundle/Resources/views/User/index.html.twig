@@ -21,6 +21,19 @@
 				<p>
 					{% trans %} Total records: {% endtrans %} <span id="total">{{ pagination.getTotalItemCount }}</span>
 				</p>
+				
+				<form method="get" action="" class="form-inline" role="search">
+					<div class="form-group">
+						<input type="text" name="query" value="{{ app.request.get('query') }}" class="form-control" placeholder="{{'Search user'|trans}}" required />
+					</div>
+					<input type="submit" value="{{ 'Search'|trans }}" class="btn btn-default">
+				</form>
+				<br>					
+				{% if not pagination|length %}
+					<h2>{{ 'No search results'|trans}}</h2>
+				{% endif %}
+				
+				{% if pagination|length %}
 				<table class="table table-striped table-hover">
 					<thead>
 						<tr>
@@ -71,6 +84,7 @@
 				        {% endfor %}
 					</tbody>
 				</table>
+				{% endif %}
 				{# display navigation #}
 				<div class="navigation">
 					{{ knp_pagination_render(pagination) }}
