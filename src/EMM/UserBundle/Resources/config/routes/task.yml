@@ -1,0 +1,44 @@
+emm_task_index:
+    path:     /index
+    defaults: { _controller: EMMUserBundle:Task:index }
+
+emm_task_add:
+    path:     /add
+    defaults: { _controller: EMMUserBundle:Task:add }
+
+emm_task_create:
+    path:     /create
+    defaults: { _controller: EMMUserBundle:Task:create }
+    methods:  POST
+
+emm_task_edit:
+    path:     /edit/{id}
+    defaults: { _controller: EMMUserBundle:Task:edit }
+
+emm_task_update:
+    path:     /update/{id}
+    defaults: { _controller: EMMUserBundle:Task:update }
+    methods:  [POST, PUT]
+
+emm_task_view:
+    path:     /view/{id}
+    defaults: { _controller: EMMUserBundle:Task:view }
+
+emm_task_delete:
+    path:     /delete/{id}
+    defaults: { _controller: EMMUserBundle:Task:delete }
+    methods:  [POST, DELETE]
+
+emm_task_redirect_add:
+    path: /create
+    defaults:
+        _controller: EMMUserBundle:Task:add
+        path: /add
+        permanent: true
+
+emm_task_redirect_edit:
+    path: /update/{id}
+    defaults:
+        _controller: EMMUserBundle:Task:edit
+        path: /edit/{id}
+        permanent: true

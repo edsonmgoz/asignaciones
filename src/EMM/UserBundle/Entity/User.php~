@@ -357,37 +357,4 @@ class User implements UserInterface
     {
         
     }
-
-    /**
-     * Add tasks
-     *
-     * @param \EMM\UserBundle\Entity\Task $tasks
-     * @return User
-     */
-    public function addTask(\EMM\UserBundle\Entity\Task $tasks)
-    {
-        $this->tasks[] = $tasks;
-
-        return $this;
-    }
-
-    /**
-     * Remove tasks
-     *
-     * @param \EMM\UserBundle\Entity\Task $tasks
-     */
-    public function removeTask(\EMM\UserBundle\Entity\Task $tasks)
-    {
-        $this->tasks->removeElement($tasks);
-    }
-
-    /**
-     * Get tasks
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getTasks()
-    {
-        return $this->tasks;
-    }
 }

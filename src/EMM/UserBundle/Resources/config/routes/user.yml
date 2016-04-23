@@ -1,0 +1,44 @@
+emm_user_index:
+    path:     /index
+    defaults: { _controller: EMMUserBundle:User:index }
+
+emm_user_add:
+    path:     /add
+    defaults: { _controller: EMMUserBundle:User:add }
+
+emm_user_create:
+    path:     /create
+    defaults: { _controller: EMMUserBundle:User:create }
+    methods:  POST
+
+emm_user_edit:
+    path:     /edit/{id}
+    defaults: { _controller: EMMUserBundle:User:edit }
+
+emm_user_update:
+    path:     /update/{id}
+    defaults: { _controller: EMMUserBundle:User:update }
+    methods:  [POST, PUT]
+
+emm_user_view:
+    path:     /view/{id}
+    defaults: { _controller: EMMUserBundle:User:view }
+
+emm_user_delete:
+    path:     /delete/{id}
+    defaults: { _controller: EMMUserBundle:User:delete }
+    methods:  [POST, DELETE]
+
+emm_user_redirect_add:
+    path: /create
+    defaults:
+        _controller: EMMUserBundle:User:add
+        path: /add
+        permanent: true
+
+emm_user_redirect_edit:
+    path: /update/{id}
+    defaults:
+        _controller: EMMUserBundle:User:edit
+        path: /edit/{id}
+        permanent: true
