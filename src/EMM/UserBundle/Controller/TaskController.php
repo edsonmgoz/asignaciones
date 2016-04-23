@@ -57,10 +57,12 @@ class TaskController extends Controller
             $em->persist($task);
             $em->flush();
             
-            $this->addFlash('mensaje', 'The task has been created.');
+            $successMessage = $this->get('translator')->trans('The task has been created.');
+            $this->addFlash('mensaje', $successMessage);            
+            
             return $this->redirectToRoute('emm_task_index');
         }
         
-        return $this->redirect('EMMUserBundle:Task:add.html.twig', array('form' => $form->createView()));
+        return $this->render('EMMUserBundle:Task:add.html.twig', array('form' => $form->createView()));
     }
 }

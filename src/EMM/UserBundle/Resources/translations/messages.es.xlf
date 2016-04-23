@@ -169,7 +169,51 @@
             <trans-unit id="42">
                 <source>No search results</source>
                 <target>No existe resultados</target>
-            </trans-unit>              
+            </trans-unit>   
+            <trans-unit id="43">
+                <source>Tasks</source>
+                <target>Tareas</target>
+            </trans-unit>
+            <trans-unit id="44">
+                <source>Title</source>
+                <target>Título</target>
+            </trans-unit>
+            <trans-unit id="45">
+                <source>Description</source>
+                <target>Descripción</target>
+            </trans-unit>
+            <trans-unit id="46">
+                <source>Status</source>
+                <target>Estado</target>
+            </trans-unit>
+            <trans-unit id="47">
+                <source>New task</source>
+                <target>Nueva tarea</target>
+            </trans-unit>
+            <trans-unit id="48">
+                <source>Task title</source>
+                <target>Título de la tarea</target>
+            </trans-unit>
+            <trans-unit id="49">
+                <source>Task description</source>
+                <target>Descripción de la tarea</target>
+            </trans-unit>
+            <trans-unit id="50">
+                <source>Create task</source>
+                <target>Crear tarea</target>
+            </trans-unit>
+            <trans-unit id="51">
+                <source>List tasks</source>
+                <target>Todas las tareas</target>
+            </trans-unit>
+            <trans-unit id="52">
+                <source>Date</source>
+                <target>Fecha</target>
+            </trans-unit>
+            <trans-unit id="53">
+                <source>The task has been created.</source>
+                <target>La tarea ha sido creada.</target>
+            </trans-unit>            
         </body>
     </file>
 </xliff>
