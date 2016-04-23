@@ -1,0 +1,50 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+	{{ parent() }}
+	
+    {{ include('EMMUserBundle:Task:messages/success.html.twig') }}
+    
+	<div class="container">
+		<div class="col-md-12">
+			<div class="page-header margin-none">
+				<h2 class="padding-none">Tasks</h2>
+			</div>
+			<div class="table-responsive">
+				<p>
+				    Total records: <span id="total"> {{ pagination.getTotalItemCount }} </span>
+				</p>
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th>{{ knp_pagination_sortable(pagination, 'Title', 't.title') }}</th>
+							<th>{{ knp_pagination_sortable(pagination, 'Date', 't.createdAt') }}</th>
+							<th>{{ 'User' }}</th>
+							<th>{{ knp_pagination_sortable(pagination, 'Status', 't.status') }}</th>
+						</tr>
+					</thead>
+					<tbody>
+				        {% for task in pagination %}
+				            <tr data-id="{{ task.id }}">
+				                <td>{{ task.title }}</td>
+				                <td>{{ task.createdAt|date('d-m-Y H:i') }}</td>
+				                <td>{{ task.user.fullName }}</td>
+				                <td>
+				                	{% if task.status == 0 %}
+										<span class="glyphicon glyphicon-time text-danger" title="{% trans %}Waiting{% endtrans %}" id="glyphicon-{{task.id}}"></span>
+									{% elseif task.status == 1 %}
+										<span class="glyphicon glyphicon-ok text-success" title="{% trans %}Finish{% endtrans %}"></span>
+				                	{% endif %}
+								</td>
+				            </tr>
+				        {% endfor %}
+					</tbody>
+				</table>
+			{# display navigation #}
+			<div class="navigation">
+			    {{ knp_pagination_render(pagination) }}
+			</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
