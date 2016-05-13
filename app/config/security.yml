@@ -4,10 +4,27 @@ security:
 
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory:
-            memory: ~
+        our_db_provider:
+            entity:
+                class: EMMUserBundle:User
+                property: username
 
     firewalls:
+        default:
+            anonymous: ~
+            http_basic: ~
+            form_login:
+                login_path: /login
+                check_path: /login_check
+                # field names for the username and password fields:
+                username_parameter: _username
+                password_parameter: _password
+                # default_target_path: default_security_target
+                # always_use_default_target_path: true
+            logout:
+                path:   /logout
+                target: /login
+                
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -27,3 +44,13 @@ security:
         EMM\UserBundle\Entity\User:
             algorithm: bcrypt
             cost: 12
+            
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/$, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/user, roles: ROLE_ADMIN }
+        - { path: ^/task/index, roles: ROLE_ADMIN }
+        - { path: ^/task/add, roles: ROLE_ADMIN }
+        - { path: ^/task/edit, roles: ROLE_ADMIN }
+        - { path: ^/task/view, roles: [ROLE_ADMIN, ROLE_USER] }
+        - { path: ^/task/delete, roles: ROLE_ADMIN }        

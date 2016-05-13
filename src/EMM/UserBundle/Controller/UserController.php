@@ -12,6 +12,11 @@ use EMM\UserBundle\Form\UserType;
 
 class UserController extends Controller
 {
+    public function homeAction()
+    {
+        return $this->render('EMMUserBundle:User:home.html.twig');
+    }
+    
     public function indexAction(Request $request)
     {
         $searchQuery = $request->get('query');
