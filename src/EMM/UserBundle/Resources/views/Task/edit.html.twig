@@ -7,7 +7,7 @@
 		<div class="row well">
 			<div class="col-md-6">
 				<div class="page-header">
-					<h2>Edit task</h2>
+					<h2>{{ 'Edit task'|trans }}</h2>
 				</div>
 				{{ form_start(form, {'attr': {'novalidate': 'novalidate', 'role' : 'form'}}) }}
 				    <h4 class="text-danger">{{ form_errors(form) }}</h4>
@@ -33,7 +33,7 @@
 					</fieldset>
 
 				    <p>
-				        {{ form_widget(form.save, {'label' : 'Update task', 'attr': {'class': 'btn btn-success'}}) }}
+				        {{ form_widget(form.save, {'label' : 'Update task'|trans, 'attr': {'class': 'btn btn-success'}}) }}
 				    </p>
 
 				{{ form_end(form) }}

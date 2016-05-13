@@ -126,7 +126,8 @@ class TaskController extends Controller
         {
             $task->setStatus(0);
             $em->flush();
-            $this->addFlash('mensaje', 'The task has been modified');
+            $successMessage = $this->get('translator')->trans('The task has been modified.');
+            $this->addFlash('mensaje', $successMessage);            
             return $this->redirectToRoute('emm_task_edit', array('id' => $task->getId()));
         }
         
@@ -152,7 +153,8 @@ class TaskController extends Controller
             $em->remove($task);
             $em->flush();
             
-            $this->addFlash('mensaje', 'The task has been deleted');
+            $successMessage = $this->get('translator')->trans('The task has been deleted.');
+            $this->addFlash('mensaje', $successMessage); 
             
             return $this->redirectToRoute('emm_task_index');
         }

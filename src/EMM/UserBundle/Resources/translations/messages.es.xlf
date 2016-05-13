@@ -213,7 +213,35 @@
             <trans-unit id="53">
                 <source>The task has been created.</source>
                 <target>La tarea ha sido creada.</target>
-            </trans-unit>            
+            </trans-unit>    
+            <trans-unit id="54">
+                <source>Waiting</source>
+                <target>En espera</target>
+            </trans-unit>  
+            <trans-unit id="55">
+                <source>Finish</source>
+                <target>Finalizado</target>
+            </trans-unit>              
+            <trans-unit id="56">
+                <source>Edit task</source>
+                <target>Editar tarea</target>
+            </trans-unit>   
+            <trans-unit id="57">
+                <source>Delete task</source>
+                <target>Eliminar tarea</target>
+            </trans-unit> 
+            <trans-unit id="58">
+                <source>Update task</source>
+                <target>Actualizar tarea</target>
+            </trans-unit>        
+            <trans-unit id="59">
+                <source>The task has been modified.</source>
+                <target>La tarea ha sido actualizada.</target>
+            </trans-unit>  
+            <trans-unit id="60">
+                <source>The task has been deleted.</source>
+                <target>La tarea ha sido eliminada.</target>
+            </trans-unit>              
         </body>
     </file>
 </xliff>

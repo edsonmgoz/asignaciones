@@ -7,39 +7,39 @@
 	    <h2>{{ task.title }}</h2>
 	        <br>
 	        <dl>
-	            <dt>Description</dt>
+	            <dt>{{ 'Description'|trans }}</dt>
 	            <dd>
 	                {{ task.description }}
 	                &nbsp;
 	            </dd>
 	            <br>
 
-	            <dt>User</dt>
+	            <dt>{{ 'User'|trans }}</dt>
 	            <dd>
 	                {{ user.fullName }}
 	                &nbsp;
 	            </dd>
 	            <br>
 
-	            <dt>Status</dt>
+	            <dt>{{ 'Status'|trans }}</dt>
 	            <dd>
                 	{% if task.status == 0 %}
-                	    <span class="text-danger">Waiting</span>
+                	    <span class="text-danger">{{ 'Waiting'|trans }}</span>
                 	{% elseif task.status == 1 %}
-                	    <span class="text-success">Finish</span>
+                	    <span class="text-success">{{ 'Finish'|trans }}</span>
                 	{% endif %}
 	                &nbsp;
 	            </dd>
 	            <br>
 
-	            <dt>Created</dt>
+	            <dt>{{ 'Created'|trans }}</dt>
 	            <dd>
 	                {{ task.createdAt|date('d-m-Y H:i') }}
 	                &nbsp;
 	            </dd>
 	            <br>
 
-	            <dt>Updated</dt>
+	            <dt>{{ 'Updated'|trans }}</dt>
 	            <dd>
 	                {{ task.updatedAt|date('d-m-Y H:i') }}
 	                &nbsp;
@@ -48,15 +48,15 @@
 	        </dl>
 	    </div>
 	    <div class="col-md-3">
-	        <h3>Actions:</h3>
+	        <h3>{{ 'Actions'|trans }}:</h3>
 	        <p>
 	            <a href="{{ path('emm_task_edit', {id: task.id}) }}" class="btn btn-primary btn-lg btn-block">
 	                <span class="glyphicon glyphicon-edit"></span>
-	                Edit task
+	                {{ 'Edit task'|trans }}
 	            </a>
 	        </p>
 	        <p>
-	            {{ include('EMMUserBundle:Task:forms/form.html.twig', { form: delete_form, message: 'Are you sure ?' }) }}
+	            {{ include('EMMUserBundle:Task:forms/form.html.twig', { form: delete_form, message: 'Are you sure ?'|trans }) }}
 	        </p>
 	    </div>
 	</div>

@@ -1,6 +1,6 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-    	<input type="button" value="Delete task" class="btn btn-lg btn-block btn-danger" onclick="confirmDelete();"/>
+    	<input type="button" value="{{ 'Delete task'|trans }}" class="btn btn-lg btn-block btn-danger" onclick="confirmDelete();"/>
 {{ form_end(form) }}
 
 <script>
