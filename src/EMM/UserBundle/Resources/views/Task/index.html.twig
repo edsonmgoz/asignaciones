@@ -21,13 +21,14 @@
 							<th>{{ knp_pagination_sortable(pagination, 'Date'|trans, 't.createdAt') }}</th>
 							<th>{{ 'User'|trans }}</th>
 							<th>{{ knp_pagination_sortable(pagination, 'Status'|trans, 't.status') }}</th>
-							<th>{% trans %}Actions{% endtrans %}</th>
 						</tr>
 					</thead>
 					<tbody>
 				        {% for task in pagination %}
 				            <tr data-id="{{ task.id }}">
-				                <td>{{ task.title }}</td>
+				                <td>
+				                	<a href="{{ path('emm_task_view', {id: task.id}) }}">{{ task.title }}</a>
+				                </td>
 				                <td>{{ task.createdAt|date('d-m-Y H:i') }}</td>
 				                <td>{{ task.user.fullName }}</td>
 				                <td>

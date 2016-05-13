@@ -1,0 +1,63 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+	{{ parent() }}
+	<div class="container well">
+	    <div class="col-md-9">
+	    <h2>{{ task.title }}</h2>
+	        <br>
+	        <dl>
+	            <dt>Description</dt>
+	            <dd>
+	                {{ task.description }}
+	                &nbsp;
+	            </dd>
+	            <br>
+
+	            <dt>User</dt>
+	            <dd>
+	                {{ user.fullName }}
+	                &nbsp;
+	            </dd>
+	            <br>
+
+	            <dt>Status</dt>
+	            <dd>
+                	{% if task.status == 0 %}
+                	    <span class="text-danger">Waiting</span>
+                	{% elseif task.status == 1 %}
+                	    <span class="text-success">Finish</span>
+                	{% endif %}
+	                &nbsp;
+	            </dd>
+	            <br>
+
+	            <dt>Created</dt>
+	            <dd>
+	                {{ task.createdAt|date('d-m-Y H:i') }}
+	                &nbsp;
+	            </dd>
+	            <br>
+
+	            <dt>Updated</dt>
+	            <dd>
+	                {{ task.updatedAt|date('d-m-Y H:i') }}
+	                &nbsp;
+	            </dd>
+	            <br>
+	        </dl>
+	    </div>
+	    <div class="col-md-3">
+	        <h3>Actions:</h3>
+	        <p>
+	            <a href="{{ path('emm_task_edit', {id: task.id}) }}" class="btn btn-primary btn-lg btn-block">
+	                <span class="glyphicon glyphicon-edit"></span>
+	                Edit task
+	            </a>
+	        </p>
+	        <p>
+	            {{ include('EMMUserBundle:Task:forms/form.html.twig', { form: delete_form, message: 'Are you sure ?' }) }}
+	        </p>
+	    </div>
+	</div>
+{% endblock %}
