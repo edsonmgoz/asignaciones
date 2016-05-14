@@ -4,11 +4,11 @@
 	{{ parent() }}
 	<div class="container">
         <h2 class="text-center">
-            Welcome
+            {{ 'Welcome'|trans }}
             {% if app.user.role == 'ROLE_ADMIN' %}
-                Administrator
+                {{ 'Administrator'|trans }}
             {% elseif app.user.role == 'ROLE_USER' %}
-                User
+                {{ 'User'|trans }}
             {% endif %}
             :
             {{ app.user.username }}

@@ -10,27 +10,27 @@
 
     <div class="container">
 		<form action="{{ path('emm_user_login_check') }}" method="post" class="form-signin">
-			<h2 class="form-signin-heading">Please sign in</h2>
+			<h2 class="form-signin-heading">{{ 'Please sign in'|trans }}</h2>
 
             {% if error %}
             <div class="text-danger">
                 <p>
                     <strong>
-                        {{ error.messageKey }}
+                        {{ error.messageKey|trans(error.messageData, 'security') }}
                     </strong>
                 </p>
             </div>
             {% endif %}
 
-		    <label for="username" class="sr-only">Username:</label>
-		    <input type="text" id="username" class="form-control" name="_username" value="{{ last_username }}" placeholder="Username" required autofocus />
+		    <label for="username" class="sr-only">{{ 'Username'|trans }}:</label>
+		    <input type="text" id="username" class="form-control" name="_username" value="{{ last_username }}" placeholder="{{ 'Username'|trans }}" required autofocus />
 
-		    <label for="password" class="sr-only">Password:</label>
-		    <input type="password" id="password" class="form-control" name="_password" placeholder="Password" required />
+		    <label for="password" class="sr-only">{{ 'Password'|trans }}:</label>
+		    <input type="password" id="password" class="form-control" name="_password" placeholder="{{ 'Password'|trans }}" required />
 		    
 		    <input type="hidden" name="_target_path" value="emm_user_homepage" />
 
-		    <button type="submit" class="btn btn-lg btn-primary btn-block">Sign in</button>
+		    <button type="submit" class="btn btn-lg btn-primary btn-block">{{ 'Sign in'|trans }}</button>
 		</form>
     </div> <!-- /container -->
 {% endblock %}

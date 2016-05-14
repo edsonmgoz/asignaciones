@@ -241,7 +241,31 @@
             <trans-unit id="60">
                 <source>The task has been deleted.</source>
                 <target>La tarea ha sido eliminada.</target>
-            </trans-unit>              
+            </trans-unit>        
+            <trans-unit id="61">
+                <source>Please sign in</source>
+                <target>Ingresar</target>
+            </trans-unit>     
+            <trans-unit id="62">
+                <source>Sign in</source>
+                <target>Acceder</target>
+            </trans-unit>
+            <trans-unit id="63">
+                <source>Password</source>
+                <target>Contraseña</target>
+            </trans-unit>
+            <trans-unit id="64">
+                <source>My tasks</source>
+                <target>Mis tareas</target>
+            </trans-unit>   
+            <trans-unit id="65">
+                <source>Welcome</source>
+                <target>Bienvenido</target>
+            </trans-unit>      
+            <trans-unit id="66">
+                <source>Logout</source>
+                <target>Salir</target>
+            </trans-unit>             
         </body>
     </file>
 </xliff>
