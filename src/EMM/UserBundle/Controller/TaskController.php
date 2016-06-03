@@ -26,6 +26,71 @@ class TaskController extends Controller
         return $this->render('EMMUserBundle:Task:index.html.twig', array('pagination' => $pagination));
     }
     
+    public function customAction(Request $request)
+    {
+        $idUser = $this->get('security.token_storage')->getToken()->getUser()->getId();
+        
+        $em = $this->getDoctrine()->getManager();
+        $dql = "SELECT t FROM EMMUserBundle:Task t JOIN t.user u WHERE u.id = :idUser ORDER BY t.id DESC";
+        
+        $tasks = $em->createQuery($dql)->setParameter('idUser' , $idUser);
+        
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $tasks,
+            $request->query->getInt('page', 1),
+            3
+        );
+        
+        $updateForm = $this->createCustomForm(':TASK_ID', 'PUT', 'emm_task_process');
+        
+        return $this->render('EMMUserBundle:Task:custom.html.twig', array('pagination' => $pagination, 'update_form' => $updateForm->createView()));
+    }
+    
+    public function processAction($id, Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $task = $em->getRepository('EMMUserBundle:Task')->find($id);
+        
+        if(!$task)
+        {
+            throw $this>createNotFoundException('Task not found');
+        }
+        
+        $form = $this->createCustomForm($task->getId(), 'PUT', 'emm_task_process');
+        $form->handleRequest($request);
+        
+        if($form->isSubmitted() && $form->isValid())
+        {
+            if ($task->getStatus() == 0)
+            {
+                $task->setStatus(1);
+                $em->flush();
+                
+                if($request->isXMLHttpRequest())
+                {
+                    return new Response(
+                        json_encode(array('processed' => 1)),
+                        200,
+                        array('Content-Type' => 'application/json')
+                    );
+                }
+            }
+            else
+            {
+                if($request->isXMLHttpRequest())
+                {
+                    return new Response(
+                        json_encode(array('processed' => 0)),
+                        200,
+                        array('Content-Type' => 'application/json')
+                    );
+                }            
+            }
+        }
+    }
+    
     public function addAction()
     {
         $task = new Task();

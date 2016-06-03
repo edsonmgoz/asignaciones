@@ -53,4 +53,7 @@ security:
         - { path: ^/task/add, roles: ROLE_ADMIN }
         - { path: ^/task/edit, roles: ROLE_ADMIN }
         - { path: ^/task/view, roles: [ROLE_ADMIN, ROLE_USER] }
-        - { path: ^/task/delete, roles: ROLE_ADMIN }        
+        - { path: ^/task/delete, roles: ROLE_ADMIN } 
+        - { path: ^/task/custom, roles: ROLE_USER } 
+        - { path: ^/task/process, roles: ROLE_USER }
+        

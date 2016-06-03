@@ -36,6 +36,15 @@ emm_task_redirect_add:
         path: /add
         permanent: true
 
+emm_task_custom:
+    path:     /custom
+    defaults: { _controller: EMMUserBundle:Task:custom }
+    
+emm_task_process:
+    path:     /process/{id}
+    defaults: { _controller: EMMUserBundle:Task:process }
+    methods:  [POST, PUT]    
+
 emm_task_redirect_edit:
     path: /update/{id}
     defaults:
