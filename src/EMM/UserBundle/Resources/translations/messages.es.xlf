@@ -277,7 +277,15 @@
             <trans-unit id="69">
                 <source>Finalize</source>
                 <target>Finalizar</target>
-            </trans-unit>               
+            </trans-unit>
+            <trans-unit id="70">
+                <source>The task has been processed.</source>
+                <target>La tarea fue procesada.</target>
+            </trans-unit>
+            <trans-unit id="71">
+                <source>The task has already been processed.</source>
+                <target>La tarea ya ha sido procesada.</target>
+            </trans-unit>            
         </body>
     </file>
 </xliff>

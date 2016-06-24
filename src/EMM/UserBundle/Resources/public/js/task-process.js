@@ -25,13 +25,13 @@ $(document).ready(function(){
                 $('#glyphicon-' + id).removeClass('glyphicon-time text-danger').addClass('glyphicon-ok text-success');
                 $('#glyphicon-' + id).prop('title', 'Finish');
                 
-                $('#user-message').html('The task has been finish.');
+                $('#user-message').html(result.success);
             }
             else
             {
                 $('#message').addClass("hidden");
                 $('#message-warning').removeClass("hidden");
-                $('#user-message-warning').html('The task was already finished.');
+                $('#user-message-warning').html(result.warning);
             }
         }).fail(function () {
             $('#button-' + id).removeClass('disabled');

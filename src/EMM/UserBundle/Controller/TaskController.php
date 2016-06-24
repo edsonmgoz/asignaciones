@@ -63,6 +63,10 @@ class TaskController extends Controller
         
         if($form->isSubmitted() && $form->isValid())
         {
+            
+            $successMessage = $this->get('translator')->trans('The task has been processed.');
+            $warningMessage = $this->get('translator')->trans('The task has already been processed.');
+            
             if ($task->getStatus() == 0)
             {
                 $task->setStatus(1);
@@ -71,7 +75,7 @@ class TaskController extends Controller
                 if($request->isXMLHttpRequest())
                 {
                     return new Response(
-                        json_encode(array('processed' => 1)),
+                        json_encode(array('processed' => 1, 'success' => $successMessage)),
                         200,
                         array('Content-Type' => 'application/json')
                     );
@@ -82,7 +86,7 @@ class TaskController extends Controller
                 if($request->isXMLHttpRequest())
                 {
                     return new Response(
-                        json_encode(array('processed' => 0)),
+                        json_encode(array('processed' => 0, 'warning' => $warningMessage)),
                         200,
                         array('Content-Type' => 'application/json')
                     );
