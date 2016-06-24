@@ -265,7 +265,19 @@
             <trans-unit id="66">
                 <source>Logout</source>
                 <target>Salir</target>
-            </trans-unit>             
+            </trans-unit>
+            <trans-unit id="67">
+                <source>No tasks</source>
+                <target>No hay tareas</target>
+            </trans-unit>   
+            <trans-unit id="68">
+                <source>My tasks</source>
+                <target>Mis tareas</target>
+            </trans-unit>    
+            <trans-unit id="69">
+                <source>Finalize</source>
+                <target>Finalizar</target>
+            </trans-unit>               
         </body>
     </file>
 </xliff>

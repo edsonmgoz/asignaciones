@@ -33,7 +33,7 @@
                 
                 {% if is_granted('ROLE_USER') %}
                 <li>
-                    <a href="{{ path('emm_task_custom') }}">My tasks</a>
+                    <a href="{{ path('emm_task_custom') }}">{{ 'My tasks'|trans }}</a>
                 </li>
                 {% endif %}
             </ul>
